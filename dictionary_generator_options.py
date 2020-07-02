@@ -11,12 +11,8 @@ def generate_words():
     print("B - uppercase", "L - lowercase",
           "S - special symbols", "N - digits", sep="\n")
     data_set = create_data_set()
-    while True:
-        try:
-            combination_len = int(input("Specify Length: "))
-            break
-        except ValueError:
-            print("Enter integer bigger than 0!!!")
+    while (combination_len := int(input('Specfiy length: '))) <= 1:
+        print("Enter integer bigger than 1!!!")
     random_words = possible_combinations(data_set, combination_len)
     write_to_file(random_words, combination_len)
     print(f"Generated {len(random_words)} unique combinations",
